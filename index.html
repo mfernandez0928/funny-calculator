@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator with Adjustable Message Trigger</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="calculator-container">
+      <button class="settings-toggle" id="settingsToggle">
+        <i class="fas fa-cog"></i>
+      </button>
+
+      <div class="settings-panel" id="settingsPanel">
+        <h3>Calculator Settings</h3>
+
+        <div class="settings-group">
+          <label for="calculationTrigger">Calculations before message:</label>
+          <input
+            type="number"
+            id="calculationTrigger"
+            min="1"
+            max="10"
+            value="1"
+          />
+        </div>
+
+        <div class="settings-group">
+          <label for="messageDuration">Message duration (seconds):</label>
+          <input
+            type="number"
+            id="messageDuration"
+            min="3"
+            max="10"
+            value="25"
+          />
+        </div>
+      </div>
+
+      <div class="calculator-header">Professional Calculator</div>
+
+      <div class="display">
+        <div class="memory-indicator">M</div>
+        <div class="calculation-counter">
+          Count: <span id="calculationCount">0</span>
+        </div>
+        <div class="previous-operation"></div>
+        <div class="current-result">0</div>
+      </div>
+
+      <div class="buttons">
+        <button class="clear">C</button>
+        <button class="backspace">⌫</button>
+        <button class="operator">%</button>
+        <button class="operator">÷</button>
+
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="operator">×</button>
+
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="operator">-</button>
+
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="operator">+</button>
+
+        <button class="number">0</button>
+        <button class="number">.</button>
+        <button class="equals">=</button>
+      </div>
+
+      <div class="calculator-footer">Press = to calculate</div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

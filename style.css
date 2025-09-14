@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a2980, #26d0ce);
+  padding: 20px;
+}
+
+.calculator-container {
+  width: 360px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.settings-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.settings-panel {
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  z-index: 10;
+  display: none;
+  backdrop-filter: blur(10px);
+}
+
+.settings-panel.active {
+  display: block;
+}
+
+.settings-panel h3 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.settings-group {
+  margin-bottom: 15px;
+}
+
+.settings-group label {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.settings-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.calculator-header {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.display {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 25px 20px;
+  text-align: right;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.previous-operation {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  min-height: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 15px;
+}
+
+.current-result {
+  font-size: 3rem;
+  font-weight: 300;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: all 0.3s ease;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+button {
+  border: none;
+  padding: 18px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.2s;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.operator {
+  background: rgba(255, 149, 0, 0.3);
+  font-weight: 500;
+}
+
+.operator:hover {
+  background: rgba(255, 149, 0, 0.5);
+}
+
+.equals {
+  background: rgba(255, 149, 0, 0.7);
+  grid-column: span 2;
+  font-weight: 600;
+}
+
+.equals:hover {
+  background: rgba(255, 149, 0, 0.9);
+}
+
+.clear,
+.backspace {
+  background: rgba(160, 160, 160, 0.2);
+}
+
+.clear:hover,
+.backspace:hover {
+  background: rgba(160, 160, 160, 0.4);
+}
+
+/* Enhanced typewriter animation */
+.typewriter {
+  font-size: 1.4rem;
+  color: #ffd700;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+  text-align: center;
+  position: relative;
+  width: 0;
+  animation: typing 3.5s steps(40, end) forwards, blink 1s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ff6b6b;
+  }
+}
+
+.calculator-footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.memory-indicator {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.calculation-counter {
+  position: absolute;
+  top: 15px;
+  right: 60px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 400px) {
+  .calculator-container {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  button {
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+
+  .current-result {
+    font-size: 2.5rem;
+  }
+}
